@@ -21,12 +21,12 @@ public interface PatientProxy {
     Patient getPatientById(@RequestBody Long id);
 
     @GetMapping(value = "/patient/id")
-    Patient findById(@RequestParam Long id);
+    Patient findById(@RequestParam("id") Long id);
 
     @PostMapping(value = "/patient/add", consumes = "application/json")
     void addPatient(@RequestBody Patient patient);
 
     @PostMapping(value = "/patient/delete/id", consumes = "application/json")
-    void delete(@RequestParam Long id);
+    void delete(@RequestParam("id") Long id);
 
 }

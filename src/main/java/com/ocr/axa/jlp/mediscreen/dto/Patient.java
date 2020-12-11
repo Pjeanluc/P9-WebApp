@@ -6,12 +6,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Patient {
 
-    Integer id;
+    Long id;
     @NotEmpty(message = "firstname is mandatory")
     @Size(min = 1, max = 100)
     String firstname;
@@ -20,6 +19,7 @@ public class Patient {
     String lastname;
     @NotNull(message = "date of birth is mandatory")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     Date birthDate;
     @NotNull(message = "gender is mandatory")
     char genre;
@@ -28,11 +28,11 @@ public class Patient {
     @Size(min = 1, max = 100)
     String phoneNumber;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

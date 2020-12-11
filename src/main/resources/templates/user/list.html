@@ -24,18 +24,16 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Full Name</th>
 					<th>User Name</th>
-					<th>Role</th>
+					<th>Pseudo</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="user : ${users}">
 					<td style="width: 10%" th:text="${user.id}"></td>
-					<td th:text="${user.fullname}"></td>
-					<td th:text="${user.username}"></td>
-					<td style="width: 25%" th:text="${user.role}"></td>
+					<td th:text="${user.userName}"></td>
+					<td th:text="${user.pseudo}"></td>
 					<td style="width: 15%" class="text-center">
 						<a th:href="@{/user/update/{id}(id=${user.id})}">Edit</a>&nbsp;|&nbsp;
 						<a th:href="@{/user/delete/{id}(id=${user.id})}" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>					
