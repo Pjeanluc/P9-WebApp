@@ -59,6 +59,7 @@ public class PatientController {
     @PostMapping("/patient/validate")
     public String validate(@Valid Patient patient, BindingResult result, Model model) {
         if (!result.hasErrors()) {
+
             patientProxy.addPatient(patient);
             model.addAttribute("patient", patientProxy.listOfPatient());
             logger.info("POST /patient/validate : OK");

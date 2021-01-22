@@ -14,6 +14,8 @@ public class User {
     @NotEmpty(message = "pseudo is mandatory")
     @Size(min = 1, max = 100)
     private String pseudo;
+    @NotEmpty(message = "role is mandatory")
+    private String role;
 
     public Long getId() {
         return id;
@@ -46,4 +48,8 @@ public class User {
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }
+
+    public String getRole() { return role; }
+
+    public void setRole(String role) { this.role = role; }
 }

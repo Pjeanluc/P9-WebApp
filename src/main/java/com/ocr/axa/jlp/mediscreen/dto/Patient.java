@@ -1,11 +1,12 @@
 package com.ocr.axa.jlp.mediscreen.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Patient {
@@ -18,9 +19,8 @@ public class Patient {
     @Size(min = 1, max = 100)
     String lastname;
     @NotNull(message = "date of birth is mandatory")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    Date birthDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    LocalDate birthDate;
     @NotNull(message = "gender is mandatory")
     char genre;
     @Size(min = 1, max = 100)
@@ -52,11 +52,11 @@ public class Patient {
         this.lastname = lastname;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
