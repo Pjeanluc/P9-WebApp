@@ -29,5 +29,5 @@ public interface UserProxy {
     void delete(@RequestParam("id") Long id);
 
     @GetMapping(value = "/user/username")
-    User findByUserName(@RequestParam("username") String userName);
+    User findByUsername(@RequestParam("username") String username);
 }

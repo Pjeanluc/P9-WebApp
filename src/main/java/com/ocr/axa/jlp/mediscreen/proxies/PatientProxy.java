@@ -26,6 +26,9 @@ public interface PatientProxy {
     @PostMapping(value = "/patient/add", consumes = "application/json")
     void addPatient(@RequestBody Patient patient);
 
+    @PostMapping(value = "/patient/update", consumes = "application/json")
+    void updatePatient(@RequestBody Patient patient);
+
     @PostMapping(value = "/patient/delete/id", consumes = "application/json")
     void delete(@RequestParam("id") Long id);
 

@@ -98,7 +98,7 @@ public class PatientController {
             return "patient/update";
         }
 
-        patientProxy.addPatient(patient);
+        patientProxy.updatePatient(patient);
         model.addAttribute("patients", patientProxy.listOfPatient());
         logger.info("POST /patient/update : OK");
         return "redirect:/patient/list";

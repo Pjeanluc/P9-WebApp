@@ -10,12 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     private static final Logger logger = LogManager.getLogger("MediscreenHomeController");
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home(Model model) {
         return "home";
     }
+
     @RequestMapping(value = "/admin/home")
-    public String getLog(Model model) {
+    public String adminHome(Model model) {
+        logger.info(" home : OK");
+        return "redirect:/user/list";
+    }
+
+    @RequestMapping(value = "/user/home")
+    public String userHome(Model model) {
         logger.info(" home : OK");
         return "redirect:/patient/list";
     }
