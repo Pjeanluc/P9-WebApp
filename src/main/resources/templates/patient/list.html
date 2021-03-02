@@ -42,6 +42,7 @@
 					<td th:text="${patient.address}"></td>
 					<td th:text="${patient.phoneNumber}"></td>
 					<td style="width: 15%" class="text-center">
+						<a th:href="@{/note/{patientId}/list(patientId=${patient.id})}">Notes</a>&nbsp;|&nbsp;
 						<a th:href="@{/patient/update/{id}(id=${patient.id})}">Edit</a>&nbsp;|&nbsp;
 						<a th:href="@{/patient/delete/{id}(id=${patient.id})}" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
 					</td>

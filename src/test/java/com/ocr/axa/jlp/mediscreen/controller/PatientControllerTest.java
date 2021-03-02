@@ -32,6 +32,7 @@ public class PatientControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
     @MockBean
     private PatientProxy patientProxy;
 

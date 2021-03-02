@@ -1,5 +1,6 @@
 package com.ocr.axa.jlp.mediscreen.controller;
 
+import com.ocr.axa.jlp.mediscreen.controller.exceptions.ProductBadRequestException;
 import com.ocr.axa.jlp.mediscreen.dto.User;
 import com.ocr.axa.jlp.mediscreen.proxies.UserProxy;
 import org.apache.logging.log4j.LogManager;
@@ -56,10 +57,16 @@ public class UserController {
     public String validate(@Valid User user, BindingResult result, Model model) {
         if (!result.hasErrors()) {
 
+     try {
             userProxy.addUser(user);
             model.addAttribute("users", userProxy.listOfUser());
             logger.info("POST /user/validate : OK");
             return "redirect:/user/list";
+             } catch (ProductBadRequestException e) {
+                 logger.info("/user/validate : add User KO");
+                 return "user/add";
+             }
+
         }
         logger.info("/user/validate : KO");
         return "user/add";

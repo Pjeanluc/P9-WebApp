@@ -1,5 +1,6 @@
 package com.ocr.axa.jlp.mediscreen.controller;
 
+import com.ocr.axa.jlp.mediscreen.controller.exceptions.ProductBadRequestException;
 import com.ocr.axa.jlp.mediscreen.dto.Patient;
 import com.ocr.axa.jlp.mediscreen.proxies.PatientProxy;
 import org.apache.logging.log4j.LogManager;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,10 +63,18 @@ public class PatientController {
     public String validate(@Valid Patient patient, BindingResult result, Model model) {
         if (!result.hasErrors()) {
 
-            patientProxy.addPatient(patient);
-            model.addAttribute("patient", patientProxy.listOfPatient());
-            logger.info("POST /patient/validate : OK");
-            return "redirect:/patient/list";
+            try {
+
+                patientProxy.addPatient(patient);
+                model.addAttribute("patient", patientProxy.listOfPatient());
+                logger.info("POST /patient/validate : OK");
+                return "redirect:/patient/list";
+            } catch (ProductBadRequestException e) {
+                result.rejectValue("firstname", "error.firstname","Le patient existe déjà");
+
+                logger.info("/patient/validate : update KO");
+                return "patient/add";
+            }
         }
         logger.info("/patient/validate : KO");
         return "patient/add";
@@ -112,7 +123,6 @@ public class PatientController {
      */
     @GetMapping("/patient/delete/{id}")
     public String deletePatient(@PathVariable("id") Long id, Model model) {
-        Patient patient = patientProxy.findById(id);
         patientProxy.delete(id);
         model.addAttribute("patients", patientProxy.listOfPatient());
         logger.info("/patient/delete : OK");
