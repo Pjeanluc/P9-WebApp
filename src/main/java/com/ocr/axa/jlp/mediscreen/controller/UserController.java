@@ -116,7 +116,6 @@ public class UserController {
      */
     @GetMapping("/user/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id, Model model) {
-        User user = userProxy.getUserById(id);
         userProxy.delete(id);
         model.addAttribute("users", userProxy.listOfUser());
         logger.info("/user/delete : OK");

@@ -1,5 +1,6 @@
 package com.ocr.axa.jlp.mediscreen.controller;
 
+import com.ocr.axa.jlp.mediscreen.dto.Note;
 import com.ocr.axa.jlp.mediscreen.dto.Patient;
 import com.ocr.axa.jlp.mediscreen.proxies.PatientProxy;
 import org.junit.jupiter.api.Test;
@@ -95,6 +96,29 @@ public class PatientControllerTest {
                 .andExpect(status().is3xxRedirection());
     }
 
+    /**
+     * Test controller to update one Note
+     */
+    @Test
+    void getUpdateOnePatientReturnOK() throws Exception {
+
+        Patient patient = new Patient();
+        LocalDate birth = LocalDate.of(2000,1,15);
+        patient.setId(1L);
+        patient.setAddress("12 rue des oliviers");
+        patient.setFirstname("TestFamille");
+        patient.setLastname("Test");
+        patient.setGenre('M');
+        patient.setBirthDate(birth);
+
+        Mockito.when(patientProxy.findById(any(Long.class))).thenReturn(patient);
+
+        this.mockMvc.perform(get("/patient/update/1")
+                .characterEncoding("utf-8"))
+                .andDo(print())
+                .andExpect(view().name("patient/update"))
+                .andExpect(status().isOk());
+    }
     /**
      * Test to validate a patient update
      */

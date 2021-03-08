@@ -37,8 +37,8 @@
 					<td th:text="${note.note}"></td>
 
 					<td style="width: 15%" class="text-center">
-						<a th:href="@{/note/{id}/update/{noteId}(id=${note.patientId}, noteId=${note.id})}">Edit</a>&nbsp;|
-						<a th:href="@{/note/{id}/delete/{noteId}(id=${note.patientId}, noteId=${note.id})}" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+						<a th:href="@{/patHistory/{id}/update/{noteId}(id=${note.patientId}, noteId=${note.id})}">Edit</a>&nbsp;|
+						<a th:href="@{/patHistory/{id}/delete/{noteId}(id=${note.patientId}, noteId=${note.id})}" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
 					</td>
 				</tr>
 			</tbody>
