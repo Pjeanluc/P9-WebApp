@@ -25,7 +25,7 @@ public class LoginController {
     public ModelAndView getAllUserArticles() {
         ModelAndView mav = new ModelAndView();
         mav.addObject("users", userProxy.listOfUser());
-        mav.setViewName("user/list");
+        mav.setViewName("/user/list");
         return mav;
     }
 

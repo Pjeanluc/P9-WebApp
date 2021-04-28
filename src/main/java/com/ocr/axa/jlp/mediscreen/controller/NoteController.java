@@ -1,6 +1,7 @@
 package com.ocr.axa.jlp.mediscreen.controller;
 
 import com.ocr.axa.jlp.mediscreen.dto.Note;
+import com.ocr.axa.jlp.mediscreen.proxies.AssessmentProxy;
 import com.ocr.axa.jlp.mediscreen.proxies.NoteProxy;
 import com.ocr.axa.jlp.mediscreen.proxies.PatientProxy;
 
@@ -28,6 +29,9 @@ public class NoteController {
     @Autowired
     PatientProxy patientProxy;
 
+    @Autowired
+    AssessmentProxy assessmentProxy;
+
     /**
      * Endpoint to show the list of note
      * @param model
@@ -51,6 +55,7 @@ public class NoteController {
     public String getNotesForAPatient(@PathVariable("id") Long id, Model model) {
         model.addAttribute("notes", noteProxy.getListNotesPatient(id));
         model.addAttribute("patient",patientProxy.findById(id));
+        model.addAttribute("assessment",assessmentProxy.getAssessmentPatient(id,1));
         return "patHistory/list";
     }
 

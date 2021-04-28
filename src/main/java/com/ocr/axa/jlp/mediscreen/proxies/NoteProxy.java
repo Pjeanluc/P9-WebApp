@@ -5,7 +5,7 @@ import com.ocr.axa.jlp.mediscreen.dto.Note;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "mediscreen-note", url = "http://localhost:8082",configuration = FeignClientConfiguration.class)
+@FeignClient(name = "mediscreen-note", url = "http://note:8082",configuration = FeignClientConfiguration.class)
 public interface NoteProxy {
 
     @GetMapping(value = "/patHistory/all")

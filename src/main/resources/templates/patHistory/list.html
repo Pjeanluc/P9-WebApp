@@ -17,14 +17,15 @@
 			<a href="/">Home</a>&nbsp;|&nbsp;<a href="/patient/list">Patient</a>
 		</div>
 	</div>
-	<div class="row"><h2>Note List</h2></div>
+	<div class="row"> <h3>Note List </h3></div>
+	<div class="row"> <h3> Patient : <span th:text="${patient.firstname} + ' ' + ${patient.lastname}"></span></h3><br/></div>
+	<div class="row"> <h4> Diabet assessment : <span th:text="${assessment.assessmentLevel}"></span></h4><br/></div>
+
 	<div class="row">
 		<a href="add" class="btn btn-primary btn-sm">Add New</a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>PatientId</th>
-					<th>Firstname</th>
 					<th>Notes</th>
 
 					<th>Action</th>
@@ -32,8 +33,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="note : ${notes}">
-					<td th:text="${note.patientId}"></td>
-					<td th:text="${patient.firstname}"></td>
+
 					<td th:text="${note.note}"></td>
 
 					<td style="width: 15%" class="text-center">
