@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
 </head>
 <body>
-<div th:include="/modal.html :: confirm"></div>
+<div th:include="modal.html :: confirm"></div>
 <div class="container">
 	<div class="row">
 		<div class="col-6">
@@ -17,7 +17,7 @@
 			<a href="/">Home</a>&nbsp;|&nbsp;<a href="/patient/list">Patient</a>
 		</div>
 	</div>
-	<div class="row"> <h3>Note List </h3></div>
+	<div class="row"> <h3>Note patient List</h3></div>
 	<div class="row"> <h3> Patient : <span th:text="${patient.firstname} + ' ' + ${patient.lastname}"></span></h3><br/></div>
 	<div class="row"> <h4> Diabet assessment : <span th:text="${assessment.assessmentLevel}"></span></h4><br/></div>
 

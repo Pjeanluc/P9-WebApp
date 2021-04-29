@@ -18,7 +18,6 @@ Micro-service webApp the UI for the application Mediscreen.
 - 127.0.0.1 assessment
 - 127.0.0.1 webapp
 - 127.0.0.1 patient
-- 127.0.0.1 mongodb
 
 ### Docker image construction in project directory
 ~~~

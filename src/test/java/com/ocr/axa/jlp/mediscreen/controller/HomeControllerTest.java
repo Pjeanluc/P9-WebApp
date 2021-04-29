@@ -1,5 +1,6 @@
 package com.ocr.axa.jlp.mediscreen.controller;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -26,6 +27,7 @@ public class HomeControllerTest {
      * Test controller home
      */
 
+    @Test
     void HomeReturnOK() throws Exception {
 
         this.mockMvc.perform(get("/home")
@@ -39,7 +41,7 @@ public class HomeControllerTest {
     /**
      * Test controller home
      */
-
+    @Test
     void HomeAdminReturnOK() throws Exception {
 
         this.mockMvc.perform(get("/admin/home")
@@ -53,7 +55,7 @@ public class HomeControllerTest {
     /**
      * Test controller home
      */
-
+    @Test
     void HomeUserReturnOK() throws Exception {
 
         this.mockMvc.perform(get("/user/home")

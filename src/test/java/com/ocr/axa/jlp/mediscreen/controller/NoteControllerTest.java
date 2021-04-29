@@ -6,6 +6,7 @@ import com.ocr.axa.jlp.mediscreen.proxies.AssessmentProxy;
 import com.ocr.axa.jlp.mediscreen.proxies.NoteProxy;
 import com.ocr.axa.jlp.mediscreen.proxies.PatientProxy;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -66,7 +67,7 @@ public class NoteControllerTest {
     /**
      * Test controller to add one Note
      */
-
+    @Test
     void ValidateOneNoteReturnOK() throws Exception {
 
         Note note = new Note();
@@ -90,7 +91,7 @@ public class NoteControllerTest {
     /**
      * Test to get the form to add a Note
      */
-
+    @Test
     public void getNoteAddTest() throws Exception {
 
         // GIVEN
@@ -104,7 +105,7 @@ public class NoteControllerTest {
     /**
      * Test controller to update one Note
      */
-
+    @Test
     void updateOneNoteReturnOK() throws Exception {
 
         Note note = new Note();
@@ -125,7 +126,7 @@ public class NoteControllerTest {
     /**
      * Test to delete a Note
      */
-
+    @Test
     public void getDeleteNoteTest() throws Exception {
 
         // GIVEN
@@ -146,7 +147,7 @@ public class NoteControllerTest {
     /**
      * Test to delete a Note, with an id Note not existing
      */
-
+    @Test
     public void getDeleteNoteNoExistingTest() throws Exception {
 
         // GIVEN

@@ -56,6 +56,7 @@ public class NoteController {
         model.addAttribute("notes", noteProxy.getListNotesPatient(id));
         model.addAttribute("patient",patientProxy.findById(id));
         model.addAttribute("assessment",assessmentProxy.getAssessmentPatient(id,1));
+        logger.info("GET /patHistory/list : OK");
         return "patHistory/list";
     }
 
